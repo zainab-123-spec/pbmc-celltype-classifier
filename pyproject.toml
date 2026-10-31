@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scpbmc"
+version = "0.1.0"
+description = "Single-cell RNA-seq PBMC cell-type classification with within- and cross-dataset evaluation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Zainab Javed", email = "276657223+zainab-123-spec@users.noreply.github.com"}]
+dependencies = ["numpy>=1.24", "pandas>=2.0", "scipy>=1.10", "scikit-learn>=1.3", "matplotlib>=3.7", "scanpy>=1.9", "anndata>=0.10"]
+
+[tool.setuptools.packages.find]
+include = ["scpbmc*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = ["*.ipynb"]  # notebooks favour short, readable cells
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B"]
+ignore = ["B905"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
